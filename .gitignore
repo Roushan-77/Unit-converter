@@ -1,0 +1,36 @@
+# Virtual environment
+env/
+.venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Vercel
+.vercel/
+
+# VSCode and IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and DB
+*.log
+*.sqlite3
+*.db
+
+# Environment files
+.env
+.env.*
+
+# Python packaging artifacts
+*.egg-info/
+build/
+dist/
+
+ 

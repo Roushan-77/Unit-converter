@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Time Converter
+{% endblock title %}
+
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/converter.css') }}?v=2"
+/>
+
+{% endblock css %}
+
+{% block body %}
+<main>
+  <section>
+    <h1 class="page-title">Time Converter</h1>
+    <form method="POST" action="/Time-page">
+      <div>
+        <label for="from-unit">From</label>
+        <select id="from-unit" name="from_unit">
+          <option value="1" {% if from_unit == '1' %}selected{% endif %}>Seconds</option>
+          <option value="2" {% if from_unit == '2' %}selected{% endif %}>Minutes</option>
+          <option value="3" {% if from_unit == '3' %}selected{% endif %}>Hours</option>
+          <option value="4" {% if from_unit == '4' %}selected{% endif %}>Days</option>
+          <option value="5" {% if from_unit == '5' %}selected{% endif %}>Weeks</option>
+          <option value="6" {% if from_unit == '6' %}selected{% endif %}>Months (30 days)</option>
+          <option value="7" {% if from_unit == '7' %}selected{% endif %}>Years (365 days)</option>
+        </select>
+
+        <input
+          type="text"
+          id="from-value"
+          name="from_value"
+          placeholder="Enter value"
+          required
+          value="{{ request.form.from_value if request.method == 'POST' else '' }}"
+        />
+
+        <div class="button-row">
+          <button type="submit">Convert</button>
+          <a href="{{ url_for('Time_page') }}">
+            <button type="button">Clear</button>
+          </a>
+        </div>
+
+        <label for="to-unit">To</label>
+        <select id="to-unit" name="to_unit">
+          <option value="1" {% if to_unit == '1' %}selected{% endif %}>Seconds</option>
+          <option value="2" {% if to_unit == '2' %}selected{% endif %}>Minutes</option>
+          <option value="3" {% if to_unit == '3' %}selected{% endif %}>Hours</option>
+          <option value="4" {% if to_unit == '4' %}selected{% endif %}>Days</option>
+          <option value="5" {% if to_unit == '5' %}selected{% endif %}>Weeks</option>
+          <option value="6" {% if to_unit == '6' %}selected{% endif %}>Months (30 days)</option>
+          <option value="7" {% if to_unit == '7' %}selected{% endif %}>Years (365 days)</option>
+        </select>
+
+        <input
+          type="text"
+          id="to-value"
+          name="to_value"
+          placeholder="Converted value"
+          value="{{ short_result }}"
+          readonly
+        />
+      </div>
+    </form>
+
+    {% if desc_result %}
+    <div>
+      <p><em>Converted Value is:</em> <strong>{{ desc_result }}</strong></p>
+    </div>
+    {% endif %}
+  </section>
+</main>
+
+{% endblock body %}
