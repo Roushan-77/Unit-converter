@@ -78,18 +78,27 @@ Let’s collaborate to make this converter more helpful for everyone 🚀
 
 ### 🖥 Git Commands Cheat Sheet
 
+#### Clone the repository
 ```bash
-# Clone the repository
 git clone https://github.com/Roushan-77/Unit-converter.git
+```
 
-# Create and switch to a new branch
+#### Create and switch to a new branch
+```bash
 git checkout -b feature/your-branch-name
+```
 
-# Add your changes
+#### Add your changes
+```bash
 git add .
+```
 
-# Commit with a meaningful message
+#### Commit with a meaningful message
+```bash
 git commit -m "Describe your changes here"
+```
 
-# Push your branch to your forked repo
+#### Push your branch to your forked repo
+```bash
 git push origin feature/your-branch-name
+```
